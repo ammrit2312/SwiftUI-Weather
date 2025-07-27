@@ -93,6 +93,7 @@ struct WeatherDayView: View {
     }
 }
 
+
 struct BackgroundView: View {
     
     @Binding var isNight: Bool // use binding only when you want to also edit the state if its read only as in this case just use the same state
