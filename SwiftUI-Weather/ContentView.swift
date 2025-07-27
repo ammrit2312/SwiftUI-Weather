@@ -81,8 +81,9 @@ struct WeatherDayView: View {
                 .foregroundStyle(.white)
             
             Image(systemName: weatherData.imageName)
-                .renderingMode(.original)
+                .symbolRenderingMode(.multicolor)
                 .resizable()
+//                .foregroundStyle(<#T##primary: ShapeStyle##ShapeStyle#>, <#T##secondary: ShapeStyle##ShapeStyle#>, <#T##tertiary: ShapeStyle##ShapeStyle#>)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50, height: 50)
             
@@ -93,14 +94,13 @@ struct WeatherDayView: View {
     }
 }
 
-
 struct BackgroundView: View {
     
     @Binding var isNight: Bool // use binding only when you want to also edit the state if its read only as in this case just use the same state
     
     
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [isNight ? .black : .blue, isNight ? .gray : Color("lightBlue")]),
+        LinearGradient(gradient: Gradient(colors: [isNight ? .gray : Color("lightBlue"), isNight ? .black : .blue]),
                        startPoint: .topLeading,
                        endPoint: .bottomTrailing)
         .ignoresSafeArea()
